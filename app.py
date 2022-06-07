@@ -11,6 +11,10 @@ app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=20)
 
 app = Flask(__name__)
 
+# https://www.youtube.com/watch?v=4yaG-jFfePc
+@app.route('/contactUs')
+def PageName(pageName):
+    return render_template('PageName.html', name=pageName)
 
 @app.route('/contactUs')
 def goToContacUs():

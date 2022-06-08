@@ -1,8 +1,8 @@
 <nav id="mySidenav" class="menu">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <ul>
-        <li><a href="file:///C:/Users/ADMIN/OneDrive%20-%20post.bgu.ac.il/%D7%9E%D7%A1%D7%9E%D7%9B%D7%99%D7%9D/CoralElimelech/templates/HomePage.html">Home Page</a></li>
-        <li><a href="file:///C:/Users/ADMIN/OneDrive%20-%20post.bgu.ac.il/%D7%9E%D7%A1%D7%9E%D7%9B%D7%99%D7%9D/CoralElimelech/templates/ContactUs.html">Contact Us</a></li>
+        <li><a href="{{ url_for('goToHomePage') }}">Home Page</a></li>
+        <li><a href="{{ url_for('goToContactUs') }}">Contact Us</a></li>
     </ul>
 </nav>
 <span class="menuSighn" onclick="openNav()">&#9776; </span>

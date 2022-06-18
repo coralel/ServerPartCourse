@@ -1,4 +1,4 @@
-# import
+# ----------------------------------- import -----------------------------------
 from flask import Flask, redirect, render_template
 from flask import url_for
 from datetime import timedelta
@@ -8,10 +8,7 @@ from flask import request, session, jsonify
 app = Flask(__name__)
 
 
-# Create a route decorator
-@app.route('/')
-def ContactUs():
-    return render_template("ContactUs.html")
+
 
 
 app.secret_key = '123'
@@ -22,22 +19,17 @@ app = Flask(__name__)
 
 
 # https://www.youtube.com/watch?v=4yaG-jFfePc
-@app.route('/contactUs')
-def PageName(pageName):
-    return render_template('PageName.html', name=pageName)
+# @app.route('/contactUs')
+# def PageName(pageName):
+#    return render_template('PageName.html', name=pageName)
 
-
-@app.route('/contactUs')
+# -------------------------- Create a route decorator --------------------------
+@app.route('/ContactUs')
 def goToContactUs():
     return render_template('ContactUs.html')
 
 
-@app.route('/')
-def redirectHomePage():
-    return redirect(url_for('goToHomePage'))
-
-
-@app.route('/homePage')
+@app.route('/HomePage')
 def goToHomePage():
     return render_template('HomePage.html')
 

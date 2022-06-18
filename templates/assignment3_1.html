@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% set title='my hobbies' %}
+{% block title %}{{ title }} Page{% endblock %}
+
+{% block content %}
+     {{ super() }}
+    {% include('headerAss3.1.html') %}
+        <div class="containerAssigment3">
+            <h2>My Hobbies</h2>
+             <br>
+            <ul class="MyList">
+                {% for hobbie in hobbies %}
+                    <li>{{ hobbie | replace(" ", "-", 2) }}</li>
+                {% endfor %}
+            </ul>
+
+        </div>
+         <div class="containerAssigment3">
+                <h2>My Favorite music</h2>
+              <br>
+                <ul class="MyList">
+                    {% for music in musics %}
+                        <li>{{ music|upper() }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+{% endblock %}

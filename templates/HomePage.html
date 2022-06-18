@@ -1,26 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-    <link rel="stylesheet" href="CSS_Style.css">
-    <script defer src="JS_function.JS"></script>
-    <meta name='author' content='Coral Elimelech'/>
-</head>
+{% extends 'base.html' %}
+    {% set title='Home Page' %}
+    {% block title %}{{ title }} Page{% endblock %}
 
-<body>
-    <nav id="mySidenav" class="menu">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <ul>
-            <li><a href="file:///C:/Users/ADMIN/OneDrive%20-%20post.bgu.ac.il/%D7%9E%D7%A1%D7%9E%D7%9B%D7%99%D7%9D/CoralElimelech/templates/HomePage.html">Home Page</a></li>
-            <li><a href="file:///C:/Users/ADMIN/OneDrive%20-%20post.bgu.ac.il/%D7%9E%D7%A1%D7%9E%D7%9B%D7%99%D7%9D/CoralElimelech/templates/ContactUs.html">Contact Us</a></li>
-        </ul>
-    </nav>
-    <span class="menuSighn" onclick="openNav()">&#9776; </span>
-
-    <div class="container">
+{% block content %}
+     {{ super() }}
+<div class="container">
         <h2 class="AnimationHomePage">
           <span class="AnimationHomePage-num one">WELCOME</span>
           <span class="AnimationHomePage-num two">TO</span>
@@ -32,10 +16,9 @@
     </div>
     <div id="Welcome">
        <h4>
-        Welcome to my HTML page! 
+        Welcome to my HTML page!
         <br><br>
         By Coral Elimelech
-       </h4> 
-    </div> 
-</body>
-</html>
+       </h4>
+    </div>
+{% endblock %}

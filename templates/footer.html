@@ -1,7 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>footer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'CSS_Style.css')}}">
+    <script defer src="{{ url_for('static', filename = 'JS_function.JS')}}"></script>
+</head>
+<body>
  <footer>
      <img src="" alt="" id="logo" onclick="fun()">
      <div class="BottomMenu">
-        <a id="BMenu" href="">Conditions</a>
-        <a href="{{ url_for('goToContactUs') }}">Contact Us</a>
+        <a href="{{ url_for('go_to_assignment3_2') }}">Search or Register</a>
+        <a href="{{ url_for('go_to_contact_us') }}">Contact Us</a>
     </div>
  </footer>
+</body>
+</html>

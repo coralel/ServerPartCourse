@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>headerAss3.1</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'CSS_Style.css')}}">
+    <script defer src="{{ url_for('static', filename = 'JS_function.JS')}}"></script>
+</head>
+<body>
+        <h1>A little about me</h1>
+       <div class="containerAssigment3">
+            <h2>My Info</h2>
+            <br>
+            {% for title, value in My_info.items() %}
+                <h3>{{ title }}: {{ value }}</h3>
+            {% endfor %}
+       </div>
+</body>
+</html>

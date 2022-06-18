@@ -3,13 +3,13 @@ from flask import Flask, redirect, render_template, url_for
 from datetime import timedelta
 from flask import request, session, jsonify
 
-
 # --------------------------- Create a Flask instance ---------------------------
 app = Flask(__name__)
 
 app.secret_key = '123'
 app.config['SESSION_PERMANENT'] = True
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=10)
+
 
 # -------------------------- Create a route decorator --------------------------
 
@@ -49,15 +49,15 @@ def go_to_assignment3_2():
             if user_name in user_dict:
                 return render_template('assignment3_2.html',
                                        user_username=user_name,
-                                       user_lastname=user_dict[user_name][0],
-                                       user_age=user_dict[user_name][1],
-                                       user_email=user_dict[user_name][2],
+                                       user_lastname=user_dict[user_name][1],
+                                       user_age=user_dict[user_name][2],
+                                       user_email=user_dict[user_name][0],
                                        nickname=user_dict[user_name][3])
             if len(user_name) == 0:
                 return render_template('assignment3_2.html',
                                        user_dict=user_dict)
             else:
-                return render_template('assignment3_2.html', message='User is not found')
+                return render_template('assignment3_2.html', message='Who are you?')
     # Post Case
     if request.method == 'POST':
         reg_username = request.form['username']
@@ -102,4 +102,3 @@ def logout():
 
 if __name__ == '__main__':
     app.run(debug=True)
-

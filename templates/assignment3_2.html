@@ -3,83 +3,60 @@
 {% block title %}{{ title }} Page{% endblock %}
 
 {% block content %}
-     {{ super() }}
- <br><br><br><br>
-  {% if session['registered'] %}
-      <div class="containerAssigment3">
-      <br><br><br><br><br><br><br>
-        <form action="/searchForms" method="get">
-            <input type="text" name="user_username" placeholder="Username"><br><br>
-            <input type="submit" class="button">
-        </form>
-      </div>
-        {% if user_username %}
-            <br>
-            <a>{{user_username}}</a><br>
-            <a>Email: {{user_email}}</a><br>
-            <a>Age: {{user_age}}</a><br>
-        {% endif %}
+    {{ super() }}
 
-        {% if user_dict %}
-            <ol>
-            {% for m, n in user_dict.items() %}
-                <li><a>UserName: {{ m }}</a></li><br>
-                <li><a>Email: {{ n[0] }}</a></li><br>
-                <li><a>LastName: {{ n[1] }}</a></li><br>
-                <li><a>Age: {{ n[2] }}</a></li><br><br>
-            {% endfor %}
-            </ol>
-        {% endif %}
-
-    {% else %}
-        {% if message %}
-            <a>Who are you?</a>
-        {% endif %}
-         <div class="containerAssigment3">
+    <br><br><br>
+    <div class="containerAssigment3">
         <form action="/searchForms" method="get">
             <input type="text" name="user_name" placeholder="User Name"><br><br>
             <input type="submit" value="Search" class="button">
         </form>
-         </div>
-        {% if user_username %}
-            <br>
-            <a>{{user_username}}</a><br>
-            <a>LastName: {{ user_lastname }}</a><br>
-            <a>Email: {{user_email}}</a><br>
-            <a>Age: {{user_age}}</a><br>
-            <a>nickname: {{ nickname }}</a>
-        {% endif %}
+    </div>
 
-        {% if user_dict %}
-            <ol>
-            {% for m, n in user_dict.items() %}
-                <li><a>UserName: {{ m }}</a></li><br>
-                <li><a>LastName: {{ n[1] }}</a></li><br>
-                <li><a>Email: {{ n[0] }}</a></li><br>
-                <li><a>nickname: {{ n[3] }}</a></li><br><br>
-                <li><a>Age: {{ n[2] }}</a></li><br><br>
-            {% endfor %}
-            </ol>
-        {% endif %}
-
-        <br><br><br><br><br><br><br>
-        {% if session['Registered'] %}
-             <a href="/log_out">
-                 <input value="Log Out" class="button" type="submit"/>
-             </a>
-
-        {% else %}
-            <div class="containerAssigment3">
-                <form action="/searchForms" method="post">
-                    <input type="text" name="username" placeholder="User Name" required><br><br>
-                    <input type="text" name="user_lastname" placeholder="User Last Name" required><br><br>
-                    <input type="text" name="nickname" placeholder="User nickname" required><br><br>
-                    <input type="email" name="email" placeholder="User Email" required><br><br>
-                    <input type="int" name="age" placeholder="User Age" required><br><br>
-                    <input type="submit" value="Register" class="button">
-                </form>
-            </div>
-        {% endif %}
+    {% if message %}
+        <a>Who are you?</a>
     {% endif %}
-     <br><br><br><br> <br><br><br><br> <br><br><br><br>
+
+    {% if user_username %}
+        <br>
+        <a>{{user_username}}</a><br>
+        <a>LastName: {{ user_lastname }}</a><br>
+        <a>Email: {{ user_email }}</a><br>
+        <a>Age: {{ user_age }}</a><br>
+        <a>nickname: {{ nickname }}</a>
+    {% endif %}
+
+    {% if user_dict %}
+        <ol>
+            {% for m, n in user_dict.items() %}
+                <li><a>UserName: {{ m }}</a></li>
+                <li><a>LastName: {{ n[1] }}</a></li>
+                <li><a>Email: {{ n[0] }}</a></li>
+                <li><a>nickname: {{ n[3] }}</a></li>
+                <li><a>Age: {{ n[2] }}</a></li>
+                <br>
+            {% endfor %}
+        </ol>
+    {% endif %}
+
+    <br><br><br><br><br><br><br>
+    {% if session['Registered'] %}
+        <a href="/log_out">
+            <input value="Exit" class="button" type="submit"/>
+        </a>
+    {% else %}
+        <div class="containerAssigment3">
+            <form action="/searchForms" method="post">
+                <input type="text" name="username" placeholder="User Name" required><br><br>
+                <input type="text" name="user_lastname" placeholder="User Last Name" required><br><br>
+                <input type="text" name="nickname" placeholder="User nickname" required><br><br>
+                <input type="email" name="email" placeholder="User Email" required><br><br>
+                <input type="int" name="age" placeholder="User Age" required><br><br>
+                <input type="submit" value="Register" class="button">
+            </form>
+        </div>
+    {% endif %}
+
+<br><br><br><br> <br><br><br><br> <br><br><br><br>
+
 {% endblock %}

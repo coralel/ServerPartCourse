@@ -2,6 +2,7 @@
 from flask import Flask, redirect, render_template, url_for
 from datetime import timedelta
 from flask import request, session, jsonify
+import mysql.connector
 
 # --------------------------- Create a Flask instance ---------------------------
 app = Flask(__name__)
@@ -37,7 +38,8 @@ def MyInfo():
     return render_template('assignment3_1.html',
                            My_info=My_info,
                            hobbies=hobbies,
-                           musics=musics)
+                           musics=musics,
+                           message1='My hobbies are yours too?')
 
 
 @app.route('/searchForms', methods=['GET', 'POST'])
@@ -57,7 +59,7 @@ def go_to_assignment3_2():
                 return render_template('assignment3_2.html',
                                        user_dict=user_dict)
             else:
-                return render_template('assignment3_2.html', message='Who are you?')
+                return render_template('assignment3_2.html', message='Who it is?')
     # Post Case
     if request.method == 'POST':
         reg_username = request.form['username']
@@ -71,6 +73,12 @@ def go_to_assignment3_2():
         session['age'] = reg_age
         session['nickname'] = reg_nickname
         session['Registered'] = True
+        if reg_username in user_dict:
+            return render_template('assignment3_2.html', message2='I already know you!')
+        else:
+            user_dict[reg_username] = (reg_email, reg_lastname, reg_age, reg_nickname)
+            return render_template('assignment3_2.html', message2='Welcome my new friend! registration was successful!')
+
         return render_template('assignment3_2.html')
 
     return render_template('assignment3_2.html')

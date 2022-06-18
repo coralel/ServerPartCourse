@@ -6,7 +6,7 @@
     {{ super() }}
 
     <br><br><br>
-    <div class="containerAssigment3">
+    <div class="containerAssignments">
         <form action="/searchForms" method="get">
             <input type="text" name="user_name" placeholder="User Name"><br><br>
             <input type="submit" value="Search" class="button">
@@ -14,7 +14,7 @@
     </div>
 
     {% if message %}
-        <a>Who are you?</a>
+        <h3>{{ message }}</h3>
     {% endif %}
 
     {% if user_username %}
@@ -44,8 +44,13 @@
         <a href="/log_out">
             <input value="Exit" class="button" type="submit"/>
         </a>
+    <br><br><br>
+    {% if message2 %}
+        <h3>{{ message2 }}</h3>
+    {% endif %}
+
     {% else %}
-        <div class="containerAssigment3">
+        <div class="containerAssignments">
             <form action="/searchForms" method="post">
                 <input type="text" name="username" placeholder="User Name" required><br><br>
                 <input type="text" name="user_lastname" placeholder="User Last Name" required><br><br>

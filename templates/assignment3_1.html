@@ -5,7 +5,7 @@
 {% block content %}
      {{ super() }}
     {% include('headerAss3.1.html') %}
-        <div class="containerAssigment3">
+        <div class="containerAssignments">
             <h2>My Hobbies</h2>
              <br>
             <ul class="MyList">
@@ -13,9 +13,12 @@
                     <li>{{ hobbie | replace(" ", "-", 2) }}</li>
                 {% endfor %}
             </ul>
-
+            <br><br>
+            {% if message1 %}
+                <h3> {{ message1 }} </h3>
+            {% endif %}
         </div>
-         <div class="containerAssigment3">
+         <div class="containerAssignments">
                 <h2>My Favorite music</h2>
               <br>
                 <ul class="MyList">

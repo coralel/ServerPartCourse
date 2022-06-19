@@ -19,24 +19,27 @@
 
     {% if user_username %}
         <br>
-        <a>{{user_username}}</a><br>
-        <a>LastName: {{ user_lastname }}</a><br>
-        <a>Email: {{ user_email }}</a><br>
-        <a>Age: {{ user_age }}</a><br>
-        <a>nickname: {{ nickname }}</a>
+        <div class="containerAssignmentsSmall">
+            <h3><a>{{user_username}}</a></h3>
+            <a>LastName: {{ user_lastname }}</a><br>
+            <a>Email: {{ user_email }}</a><br>
+            <a>Age: {{ user_age }}</a><br>
+            <a>nickname: {{ nickname }}</a>
+        </div>
     {% endif %}
 
     {% if user_dict %}
-        <ol>
-            {% for m, n in user_dict.items() %}
-                <li><a>UserName: {{ m }}</a></li>
-                <li><a>LastName: {{ n[1] }}</a></li>
-                <li><a>Email: {{ n[0] }}</a></li>
-                <li><a>nickname: {{ n[3] }}</a></li>
-                <li><a>Age: {{ n[2] }}</a></li>
-                <br>
-            {% endfor %}
-        </ol>
+        <div class="containerAssignmentBig">
+             {% for m, n in user_dict.items() %}
+                 <div class="containerAssignmentsSmall">
+                     <h3><a>{{ m }}</a></h3>
+                     <a>LastName: {{ n[1] }}</a><br>
+                     <a>Email: {{ n[0] }}</a><br>
+                     <a>nickname: {{ n[3] }}</a><br>
+                     <a>Age: {{ n[2] }}</a>
+                 </div>
+             {% endfor %}
+        </div>
     {% endif %}
 
     <br><br><br><br><br><br><br>

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% set title='my hobbies' %}
+{% set title='my Details' %}
 {% block title %}{{ title }} Page{% endblock %}
 
 {% block content %}
@@ -19,14 +19,21 @@
             {% endif %}
         </div>
          <div class="containerAssignments">
-                <h2>My Favorite music</h2>
+              <h2>My Favorite music</h2>
               <br>
-                <ul class="MyList">
+              <ul class="MyList">
                     {% for music in musics %}
                         <li>{{ music|upper() }}</li>
                     {% endfor %}
-                </ul>
-            </div>
+              </ul>
+         </div>
+         <div class="containerAssignments">
+              <h2>My Favorite Website</h2>
+              <br>
+              <a href="/terminalX">
+                <input value="TerminalX" class="terminalX" type="submit"/>
+              </a>
+         </div>
     <br>
     <br>
     <br>

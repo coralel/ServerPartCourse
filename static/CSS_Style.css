@@ -3,14 +3,13 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    font-family: url(../static/Handlee) ;
     font-family: myFont;
     text-align: center;
 }
 
 @font-face {
   font-family: myFont;
-  src: url(../static/Handlee/Handlee-Regular);
+  src: url(../static/Handlee/Handlee-Regular.ttf);
 }
 
 *{

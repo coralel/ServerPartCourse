@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>user list</title>
+    <link rel="stylesheet" href="{{ url_for('users.static', filename='assignment4.css')}}">
+</head>
+<body>
+        <h1>Users table in json format</h1>
+           {{ users }}
+        <br><br><br>
+        <a href="/select_users">
+            <input value="back" class="back_to_users" type="submit"/>
+        </a><br>
+</body>
+</html>

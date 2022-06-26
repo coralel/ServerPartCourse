@@ -1,0 +1,19 @@
+.messageCRUD{
+    color: #ae923d;
+    font-style: italic;
+}
+
+.back_to_users{
+    background-color: #030303;
+    border: none;
+    border-radius: 50%;
+    color: #ffffff;
+    font-style: italic;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 2px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}

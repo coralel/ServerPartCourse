@@ -58,7 +58,7 @@
                 <input type="text" name="username" placeholder="User Name" required><br><br>
                 <input type="text" name="user_lastname" placeholder="User Last Name" required><br><br>
                 <input type="text" name="nickname" placeholder="User nickname" required><br><br>
-                <input type="email" name="email" placeholder="User Email" required><br><br>
+                <input type="email" pattern='^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$' name="email" placeholder="User Email" required><br><br>
                 <input type="int" name="age" placeholder="User Age" required><br><br>
                 <input type="submit" value="Register" class="button">
             </form>

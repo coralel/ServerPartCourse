@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% set title='FrontEnd vs BackEnd' %}
+{% block title %}{{ title }} Page{% endblock %}
+        {% block pagehead %}
+            <link rel="stylesheet" href="{{ url_for('users.static', filename='assignment4.css')}}">
+            <script defer src="{{ url_for('users.static', filename='assignment4.js')}}"></script>
+        {% endblock %}
+
+{% block content %}
+    {{ super() }}
+
+    <div class="containerAssignments">
+        <h2>Fetch-FrontEnd</h2><br>
+        User ID: <input type="number" name="user_id" id="user_id_ins"><br><br>
+        <button onclick="myFunction()" class="button">Get user</button>
+    </div><br>
+
+    <main></main><br>
+
+    <div class="containerAssignments">
+        <h2>Requests-BackEnd</h2><br>
+        <form action="/fetch_be" method="get">
+            User ID: <input type="text" name="num_id" value={{ session.num | default(3, true) }}><br><br>
+            <input type="submit" value="Get user" class="button">
+        </form>
+    </div>
+    {% if session.selectedUser %}
+        {% for user in session.selectedUser %}
+                <img src="{{ user.data.avatar }}" alt="pic"><br>
+                <h4>{{ user.first_name }} {{ user.last_name }}</h4>
+                <h4>{{ user.email }}</h4><br>
+        {% endfor %}
+    {% endif %}
+
+
+
+{% endblock %}

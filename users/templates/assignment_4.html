@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% set title='CRUD' %}
+{% block title %}{{ title }} Page{% endblock %}
+        {% block pagehead %}
+            <link rel="stylesheet" href="{{ url_for('users.static', filename='assignment4.css')}}">
+        {% endblock %}
+{% block content %}
+    {{ super() }}
+        <div class="containerAssignments">
+            <h1>Insertion:</h1>
+            <br>
+            {% if session['INSERT'] %}
+                <h3 class="messageCRUD">{{ session['insertMessage'] | title() }}</h3><br>
+            {% endif %}
+            <form action="/insert_user" method="post">
+                <input type="int" name="userID" placeholder="User ID" required><br><br>
+                <input type="text" name="username" placeholder="User Name" required><br><br>
+                <input type="text" name="user_lastname" placeholder="User Last Name" required><br><br>
+                <input type="text" name="nickname" placeholder="User nickname" required><br><br>
+                <input type="email" pattern='^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$' name="email" placeholder="User Email" required><br><br>
+                <input type="int" name="age" placeholder="User Age" required><br><br>
+                <input type="submit" value="Insert" class="button">
+            </form>
+        </div>
+
+        <div class="containerAssignments">
+            <h1>Update:</h1>
+            <br>
+            {% if session['UPDATE'] %}
+                <h3 class="messageCRUD">{{ session['insertMessage'] | title() }}</h3><br>
+            {% endif %}
+            <form action="/update_user" method="post">
+                <input type="int" name="userID" placeholder="User ID" required><br><br>
+                <input type="text" name="username" placeholder="User Name" required><br><br>
+                <input type="text" name="user_lastname" placeholder="User Last Name" required><br><br>
+                <input type="text" name="nickname" placeholder="User nickname" required><br><br>
+                <input type="email" pattern='^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$' name="email" placeholder="User Email" required><br><br>
+                <input type="int" name="age" placeholder="User Age" required><br><br>
+                <input type="submit" value="Update" class="button">
+            </form>
+        </div>
+
+        <div class="containerAssignments">
+            <h1>Deletion:</h1>
+            <br>
+            {% if session['DELETE'] %}
+                <h3 class="messageCRUD">{{ session['insertMessage'] | title() }}</h3><br>
+            {% endif %}
+            <form action="/delete_user" method="post">
+                <input type="int" name="userID" placeholder="User ID" required><br><br>
+                <input type="submit" value="Delete" class="button">
+            </form>
+        </div>
+
+        <div class="containerAssignmentBig">
+        <h1>List of users:</h1><br>
+            <a href="/assignment4/users">
+                <input value="Tap for json format" class="button" type="submit"/>
+            </a><br>
+        {% for user in users %}
+            <div class="containerAssignmentsSmall">
+                <h2>{{ user.name }}</h2>
+                <h4>ID: {{ user.ID }}</h4>
+                <h4>LastName: {{ user.lastName }}</h4>
+                <h4>Email: {{ user.email }}</h4>
+                <h4>nickname: {{ user.nickname }}</h4>
+                <h4>Age: {{ user.age }}</h4>
+            </div>
+        {% endfor %}
+        </div>
+{% endblock %}

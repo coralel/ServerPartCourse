@@ -2,7 +2,6 @@
 from flask import Flask, redirect, render_template, url_for
 from datetime import timedelta
 from flask import request, session, jsonify
-import mysql.connector
 
 # --------------------------- Create a Flask instance ---------------------------
 app = Flask(__name__)
@@ -26,16 +25,19 @@ def redirect_homepage():
 
 @app.route('/contact_us')
 def go_to_contact_us():
+    Clear_sessions()
     return render_template('ContactUs.html')
 
 
 @app.route('/home_page')
 def go_to_home_page():
+    Clear_sessions()
     return render_template('HomePage.html')
 
 
 @app.route('/My_info')
 def MyInfo():
+    Clear_sessions()
     My_info = {'name': 'Coral', 'second_name': 'Elimelech', 'nickname': 'Cori'}
     hobbies = ('Painting', 'Macrame', 'Dance', 'Reality TV', 'Swimming')
     musics = ("We're Good-Dua Lipa", 'Shape Of My Heart-Sting', "You're Beautiful-James Blunt", "You-MARBL")
@@ -53,6 +55,7 @@ def terminalX():
 
 @app.route('/searchForms', methods=['GET', 'POST'])
 def go_to_assignment3_2():
+    Clear_sessions()
     # Get Case
     if request.method == 'GET':
         if 'user_name' in request.args:
@@ -118,6 +121,24 @@ def logout():
     session['Registered'] = False
     session.clear()
     return redirect(url_for('go_to_assignment3_2'))
+
+
+# ----------------------------------------------------------------------------------------------------------------------------------------
+# -----------ASSIGNMENT 4-----------ASSIGNMENT 4-----------ASSIGNMENT 4-----------ASSIGNMENT 4-----------ASSIGNMENT 4----------------------
+# ----------------------------------------------------------------------------------------------------------------------------------------
+
+
+# ------users Blueprint-------
+from users.assignment4 import assignment_4
+app.register_blueprint(assignment_4)
+
+
+# ------------------------------- CLEAR SESSIONS FROM ASS 4 -----------------------------------
+def Clear_sessions():
+    session['INSERT'] = False
+    session['DELETE'] = False
+    session['UPDATE'] = False
+    session['ERROR'] = False
 
 
 if __name__ == '__main__':

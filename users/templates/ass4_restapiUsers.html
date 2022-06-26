@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% set title='User json format' %}
+{% block title %}{{ title }} Page{% endblock %}
+        {% block pagehead %}
+            <link rel="stylesheet" href="{{ url_for('users.static', filename='assignment4.css')}}">
+            <script defer src="{{ url_for('users.static', filename='assignment4.js')}}"></script>
+        {% endblock %}
+
+{% block content %}
+    {{ super() }}
+        <br><br>
+        <h2>User in json format</h2><br><br>
+        {% if session['ERROR'] %}
+            <h3 class="messageCRUD">{{ session['errorMessage'] | title() }}</h3><br>
+        {% endif %}
+        <h4> {{ user }} </h4>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% endblock %}

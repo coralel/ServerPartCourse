@@ -5,6 +5,7 @@ from flask import Flask, redirect, url_for
 from flask import request, session, jsonify, json
 import mysql.connector
 import requests
+from settings import DB
 from app import app
 
 assignment_4 = Blueprint('users', __name__,
@@ -22,10 +23,11 @@ assignment_4 = Blueprint('users', __name__,
 
 def interact_db(query, query_type: str):
     return_value = False
-    connection = mysql.connector.connect(host='localhost',
-                                         user='root',
-                                         passwd='root',
-                                         database='myflaskappdb')
+    connection = mysql.connector.connect(**DB)
+    #connection = mysql.connector.connect(host='localhost',
+     #                                    user='root',
+      #                                   passwd='root',
+       #                                  database='myflaskappdb')
     cursor = connection.cursor(named_tuple=True)
     cursor.execute(query)
 
@@ -99,10 +101,11 @@ def update_user():
     age = request.form['age']
     nickname = request.form['nickname']
     session['UPDATE'] = True
-    connection = mysql.connector.connect(host='localhost',
-                                         user='root',
-                                         passwd='root',
-                                         database='myflaskappdb')
+    connection = mysql.connector.connect(**DB)
+    #connection = mysql.connector.connect(host='localhost',
+                   #                      user='root',
+                    #                     passwd='root',
+                     #                    database='myflaskappdb')
     isInDB = "select * FROM users WHERE ID='%s';" % ID
     usersList = interact_db(isInDB, query_type='fetch')
 
